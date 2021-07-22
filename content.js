@@ -1,18 +1,18 @@
 //once the button is clicked, run this function!
 
-function generateList() {
-  const listElement = document.getElementById('urlList');
-  chrome.storage.sync.get(null, function (items) {
-    console.log(`contentItem: ${items}`);
-    // const listNode = document.getElementById(`${title}`);
-    // listNode.innerText = `${url} ----- ${data[url] + 1}`;
-
-    // const listNode = document.createElement('li');
-    // listNode.id = `${title}`;
-    // listNode.innerText = `${url} ----- 1`;
-    // listElement.appendChild(listNode);
+// always waits the document to be loaded when shown
+document.addEventListener('DOMContentLoaded', function () {
+  // opens a communication between scripts
+  var port = chrome.runtime.connect();
+  // sends a message throw the communication port
+  port.postMessage({
+    from: 'popup',
+    start: 'Y',
   });
-}
+});
+// });
+
+// const listNode = document.getElementById(`${title}`);
 
 // }
 // chrome.tabs.onActivated.addListener(getCurrentTab);
