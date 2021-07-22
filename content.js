@@ -1,6 +1,4 @@
-chrome.runtime.onInstalled.addListener(() => {
-  generateList();
-});
+//once the button is clicked, run this function!
 
 function generateList() {
   const listElement = document.getElementById('urlList');
